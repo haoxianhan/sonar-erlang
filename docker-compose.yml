@@ -1,10 +1,15 @@
 version: '3.9'
 services:
   sq:
-    image: 'sonarqube:9.9.1-community'
+    image: 'sonarqube:community'
     ports:
       - '9000:9000'
+    environment:
+      - SONAR_JDBC_USERNAME=sonar
+      - SONAR_JDBC_PASSWORD=sonar
     volumes:
       - './sonar/extensions/:/opt/sonarqube/extensions'
       - './sonar/data/:/opt/sonarqube/data'
       - './sonar/logs/:/opt/sonarqube/logs'
+
+    # image: 'sonarqube:9.9.1-community'
